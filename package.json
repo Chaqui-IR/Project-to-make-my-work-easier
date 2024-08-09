@@ -1,0 +1,21 @@
+{
+  "name": "word-pre-filler",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^31.3.1"
+  },
+  "dependencies": {
+    "docxtemplater": "^3.49.2",
+    "mammoth": "^1.8.0",
+    "pizzip": "^3.1.7",
+    "tesseract.js": "^5.1.0"
+  }
+}
