@@ -19,7 +19,8 @@ contextBridge.exposeInMainWorld('versions', {
   electron: () => process.versions.electron,
   ping: () => ipcRenderer.invoke('ping'),
 });
+
 contextBridge.exposeInMainWorld('electron', {
-  invoke: (channel, ...args) => ipcRenderer.invoke(channel, ...args),
-  on: (channel, callback) => ipcRenderer.on(channel, (event, ...args) => callback(...args)),
+    invoke: (channel, ...args) => ipcRenderer.invoke(channel, ...args),
+    on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args)),
 });

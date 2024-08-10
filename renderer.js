@@ -1,13 +1,14 @@
-// Ensure the app version info is displayed
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure the app version info is displayed
     const information = document.getElementById('info');
     information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`;
 
     // Setup the contextBridge
-    const { ipcRenderer } = require('electron');
-    window.electron = {
-        invoke: (channel, ...args) => ipcRenderer.invoke(channel, ...args)
-    };
+    const { contextBridge, ipcRenderer } = require('electron');
+    contextBridge.exposeInMainWorld('electron', {
+        invoke: (channel, ...args) => ipcRenderer.invoke(channel, ...args),
+        on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args)),
+    });
 
     // Add event listener to word document input
     document.getElementById('word-doc').addEventListener('change', async (event) => {
@@ -69,11 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Process image result:', result);
 
             if (result.success) {
-                document.getElementById('status')
-
-
-
-
-
-
-
+                document.getElementById('status').textContent = `Document saved to ${outputPath}`;
+            } else {
+                document.getElementById('status').textContent = 'Error: ' + result.error;
+            }
+        } catch (error) {
+            document.getElementById('status').textContent = 'An unexpected error occurred: ' + error.message;
+            console.error('Processing error:', error);
+        }
+    });
+});
