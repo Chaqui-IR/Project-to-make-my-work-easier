@@ -1,22 +1,78 @@
 /* styles.css */
+
+/* General styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    color: #ddd; /* Light text color for dark mode */
+    background-color: #333; /* Dark background color for dark mode */
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-label {
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Form styles */
+form {
+    background: #444; /* Darker background for form */
+    border: 1px solid #666; /* Slightly lighter border for form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+}
+
+/* Input and button styles */
+input[type="file"] {
     display: block;
-    margin-top: 10px;
-}
-
-#status {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-#preview {
-    border: 1px solid #ccc;
+    margin: 10px 0;
     padding: 10px;
-    max-height: 400px;
-    overflow-y: auto;
+    border: 1px solid #666; /* Border color for input fields */
+    border-radius: 4px;
+    background-color: #555; /* Darker background for inputs */
+    color: #ddd; /* Light text color for inputs */
 }
+
+button {
+    background-color: #555; /* Button background color */
+    color: #ddd; /* Button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #444; /* Darker background on hover */
+}
+
+/* Status and preview styles */
+#status, #preview {
+    margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+
+
+
+

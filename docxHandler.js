@@ -27,6 +27,7 @@ function generateDocument(data, templatePath, outputPath) {
     });
 
     fs.writeFileSync(outputPath, buf);
+    console.log(`Document saved to ${outputPath}`);
 }
 
 async function convertDocxToHtml(docxPath) {
