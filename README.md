@@ -1,4 +1,4 @@
-# Project-to-make-my-work-easier
+# Word Doc Pre filler
 This project I am working on will hopefully help me not have to work so much...
 It is still in developement, but what it should do is take a word document with {preSelected} tags, using docxHandler.
 Use an image reader in my case ocrHandler, and populate the areas by the {preSelected} tags, 
